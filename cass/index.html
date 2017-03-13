@@ -1,0 +1,84 @@
+<!doctype html>
+<html>
+  <head>
+  	<title>Cass song requests | Shiba doge bot + Revlo bot</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="input/bootstrap.min.css" rel="stylesheet" />
+    <link href="css/main.css" rel="stylesheet" />
+
+    <!-- Include the AngularJS library -->
+    <script src="input/angular.min.js"></script>
+    
+    <!-- Include YT API -->
+    <script src="http://www.youtube.com/player_api"></script>
+  </head>
+  <body ng-app="CassApp">
+
+    <div class="main" ng-controller="MainController">
+      <div class="container">
+        <div class="row">
+        	<div class="col-md-4">
+        		<h3>Last redemptions</h3>
+	        	<table>
+					<tr ng-repeat="redemption in revlobot.redemptions[0]">
+						<td>{{ redemption.username }}</td><td>{{ redemption.user_input.song }}</td>
+					</tr>
+				</table>
+        	</div>
+        	<div class="col-md-4">
+        		<youtube width="300" height="300" videoid="M7lc1UVf-VE"></youtube>
+        	</div>
+        	{{ revlobot.redemptions[0].username }}
+        	<div class="col-md-4">
+        		<h3>Queue:</h3>
+        		<table class="table">
+        			<tr ng-repeat="redemption in revlobot" ng-if="!redemption.completed"><td>{{redemption.username}}</td><td>{{redemption.user_input.song}}</td></tr>
+        		</table>
+        	</div>
+		</div>
+      </div>
+    </div>
+
+    <!-- Modules -->
+    <script src="js/app.js"></script>
+	
+    <!-- Controllers -->
+    <script src="js/controllers/MainController.js"></script>
+
+    <!-- Services -->
+	<script src="js/services/revlo.js"></script>
+
+    <!-- Directives -->
+    <script src="js/directives/Songlist.js"></script>
+	<script src="js/directives/yt.js"></script>
+	
+<script>
+/*var player;
+function onYouTubePlayerAPIReady() {
+    player = new YT.Player('player', {
+      height: '300',
+      width: '100%',
+      videoId: '0Bmhjf0rKe8',
+      events: {
+        'onReady': onPlayerReady,
+        'onStateChange': onPlayerStateChange
+      }
+    });
+}
+
+// autoplay video
+function onPlayerReady(event) {
+    event.target.playVideo();
+}
+
+// when video ends
+function onPlayerStateChange(event) {        
+    if(event.data === 0) {    
+    	player.loadVideoById('GMDqA3DkAEw');
+    }
+}*/
+</script>	
+	
+	
+  </body>
+</html>

@@ -1,0 +1,21 @@
+<script>
+var data = null;
+
+var xhr = new XMLHttpRequest();
+xhr.withCredentials = true;
+
+xhr.addEventListener("readystatechange", function () {
+  if (this.readyState === 4) {
+    console.log(this.responseText);
+  }
+});
+
+xhr.open("GET", "https://api.revlo.co/1/redemptions?page=1&refunded=false");
+xhr.setRequestHeader("x-api-key", "0tgeppCMU0A7VSBzbLfLj9MPHoLeeuujaSVusOGWo_U");
+xhr.setRequestHeader("accept", "application/json");
+xhr.setRequestHeader("connection", "close");
+xhr.setRequestHeader("cache-control", "no-cache");
+xhr.setRequestHeader("postman-token", "98efee4b-10f5-d8da-a7cc-733625280e3d");
+
+xhr.send(data);
+</script>
